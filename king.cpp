@@ -1,5 +1,6 @@
 #include "king.h"
-#include <cmath>
+#include <cstdlib>
+#include <algorithm>
 
 King::King(int x, int y, bool white)
 : Piece(KING, x, y, white)
@@ -14,6 +15,6 @@ bool King::canMove(int x, int y)
 
 bool King::canAttack(int x, int y)
 {
-    return (std::abs(this->x - x) == 1) && (std::abs(this->y - y) == 1);
+    return std::max(std::abs(this->x - x), std::abs(this->y - y)) == 1;
 }
 

@@ -1,5 +1,5 @@
 #include "bishop.h"
-#include <cmath>
+#include <cstdlib>
 
 Bishop::Bishop(int x, int y, bool white)
 : Piece(BISHOP, x, y, white)

@@ -1,5 +1,5 @@
 #include "knight.h"
-#include <cmath>
+#include <cstdlib>
 
 Knight::Knight(int x, int y, bool white)
 : Piece(KNIGHT, x, y, white)

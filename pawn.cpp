@@ -1,5 +1,5 @@
 #include "pawn.h"
-#include <cmath>
+#include <cstdlib>
 
 Pawn::Pawn(int x, int y, bool white)
 : Piece(PAWN, x, y, white)
