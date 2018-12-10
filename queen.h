@@ -8,7 +8,7 @@
 class Queen : public Rook, public Bishop
 {
     public:
-        Queen(int x, int y, bool white);
+        Queen(Board* board, int x, int y, bool white);
         bool canMove(int x, int y);
         bool canAttack(int x, int y);
 

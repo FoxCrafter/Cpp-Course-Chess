@@ -1,8 +1,8 @@
 #include "pawn.h"
 #include <cstdlib>
 
-Pawn::Pawn(int x, int y, bool white)
-: Piece(PAWN, x, y, white)
+Pawn::Pawn(Board* board, int x, int y, bool white)
+: Piece(PAWN, board, x, y, white)
 {
     //ctor
 }

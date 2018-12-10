@@ -1,8 +1,8 @@
 #include "knight.h"
 #include <cstdlib>
 
-Knight::Knight(int x, int y, bool white)
-: Piece(KNIGHT, x, y, white)
+Knight::Knight(Board* board, int x, int y, bool white)
+: Piece(KNIGHT, board, x, y, white)
 {
     //ctor
 }

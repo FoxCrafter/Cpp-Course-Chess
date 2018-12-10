@@ -59,22 +59,22 @@ bool Board::addPiece(Piece::Type type, int x, int y, bool white)
             switch(type)
             {
             case Piece::PAWN:
-                pieces[i] = new Pawn(x, y, white);
+                pieces[i] = new Pawn(this, x, y, white);
                 break;
             case Piece::KNIGHT:
-                pieces[i] = new Knight(x, y, white);
+                pieces[i] = new Knight(this, x, y, white);
                 break;
             case Piece::BISHOP:
-                pieces[i] = new Bishop(x, y, white);
+                pieces[i] = new Bishop(this, x, y, white);
                 break;
             case Piece::ROOK:
-                pieces[i] = new Rook(x, y, white);
+                pieces[i] = new Rook(this, x, y, white);
                 break;
             case Piece::QUEEN:
-                pieces[i] = new Queen(x, y, white);
+                pieces[i] = new Queen(this, x, y, white);
                 break;
             default:
-                pieces[i] = new King(x, y, white);
+                pieces[i] = new King(this, x, y, white);
             }
             return true;
         }

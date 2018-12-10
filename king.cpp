@@ -2,8 +2,8 @@
 #include <cstdlib>
 #include <algorithm>
 
-King::King(int x, int y, bool white)
-: Piece(KING, x, y, white)
+King::King(Board* board, int x, int y, bool white)
+: Piece(KING, board, x, y, white)
 {
     //ctor
 }

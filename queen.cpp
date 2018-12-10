@@ -1,7 +1,7 @@
 #include "queen.h"
 
-Queen::Queen(int x, int y, bool white)
-: Piece(QUEEN, x, y, white), Rook(x, y, white), Bishop(x ,y, white)
+Queen::Queen(Board* board, int x, int y, bool white)
+: Piece(QUEEN, board, x, y, white), Rook(board, x, y, white), Bishop(board, x ,y, white)
 {
     //ctor
 }
