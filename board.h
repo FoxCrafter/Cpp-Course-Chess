@@ -16,6 +16,7 @@ public:
     bool removePiece(int x, int y);
     bool removePiece(Piece* piece);
     bool addPiece(Piece::Type type, int x, int y, bool white);
+    bool isChess(bool white);
     void print();
     ~Board();
 private:
@@ -24,6 +25,7 @@ private:
     bool removePiece(int id);
 
     Piece *pieces[MAX_N_PIECES];
+    King *wk, *bk;
 };
 
 #endif // BOARD_H

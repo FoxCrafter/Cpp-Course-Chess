@@ -75,6 +75,14 @@ bool Board::addPiece(Piece::Type type, int x, int y, bool white)
                 break;
             default:
                 pieces[i] = new King(this, x, y, white);
+                if(white)
+                {
+                    wk = (King*)pieces[i];
+                }
+                else
+                {
+                    bk = (King*)pieces[i];
+                }
             }
             return true;
         }
@@ -155,3 +163,20 @@ void Board::print()
         std::cout << '\n';
     }
 }
+
+bool Board::isChess(bool white)
+{
+    King *k = (white) ? wk : bk;
+    for(int i = 0; i < MAX_N_PIECES; i++)
+    {
+        if(pieces[i]->white != white)
+        {
+            if(pieces[i]->canAttack(k->getX(), k->getY()))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
