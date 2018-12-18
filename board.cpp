@@ -119,7 +119,7 @@ int Board::getPieceId(Piece* piece)
 
 void Board::print()
 {
-    for(int i = 8; i >= 0; i--)
+    for(int i = 8; i > 0; i--)
     {
         for(int j = 1; j <= 8; j++)
         {
@@ -152,7 +152,7 @@ void Board::print()
                     c = 'K';
                     break;
                 }
-                if(p->white)
+                if(!p->white)
                 {
                     c += 'a' - 'A';
                 }
@@ -164,16 +164,19 @@ void Board::print()
     }
 }
 
-bool Board::isChess(bool white)
+bool Board::isChess(bool white, Piece* exclude)
 {
     King *k = (white) ? wk : bk;
     for(int i = 0; i < MAX_N_PIECES; i++)
     {
-        if(pieces[i]->white != white)
+        if(pieces[i] != NULL && pieces[i] != exclude)
         {
-            if(pieces[i]->canAttack(k->getX(), k->getY()))
+            if(pieces[i]->white != white)
             {
-                return true;
+                if(pieces[i]->canAttack(k->getX(), k->getY()))
+                {
+                    return true;
+                }
             }
         }
     }

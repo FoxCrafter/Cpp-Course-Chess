@@ -16,7 +16,7 @@ public:
     bool removePiece(int x, int y);
     bool removePiece(Piece* piece);
     bool addPiece(Piece::Type type, int x, int y, bool white);
-    bool isChess(bool white);
+    bool isChess(bool white, Piece* exculde);
     void print();
     ~Board();
 private:
