@@ -6,7 +6,7 @@ Queen::Queen(Board* board, int x, int y, bool white)
     //ctor
 }
 
-bool Queen::canMove(int x, int y)
+bool Queen::canMoveBase(int x, int y)
 {
     return canAttack(x,y);
 }

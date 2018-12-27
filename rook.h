@@ -7,7 +7,7 @@ class Rook : virtual public Piece
 {
     public:
         Rook(Board* board, int x, int y, bool white);
-        bool canMove(int x, int y);
+        bool canMoveBase(int x, int y);
         bool canAttack(int x, int y);
 
     protected:

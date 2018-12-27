@@ -9,7 +9,7 @@ Bishop::Bishop(Board* board, int x, int y, bool white)
     //ctor
 }
 
-bool Bishop::canMove(int x, int y)
+bool Bishop::canMoveBase(int x, int y)
 {
     return canAttack(x,y);
 }

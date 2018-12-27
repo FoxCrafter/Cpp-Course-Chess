@@ -1,4 +1,6 @@
 #include "pawn.h"
+
+#include "board.h"
 #include <cstdlib>
 
 Pawn::Pawn(Board* board, int x, int y, bool white)
@@ -7,10 +9,35 @@ Pawn::Pawn(Board* board, int x, int y, bool white)
     //ctor
 }
 
-bool Pawn::canMove(int x, int y)
+bool Pawn::canMoveBase(int x, int y)
 {
-    return (this->x == x) && (this->y == y - (white) ? 1 : -1);
-    //                                      "(white) ? 1 : -1" ha white akkor 1, ha nem, akkor -1
+    Piece* target = board->getPiece(x, y);
+    if(target != NULL)
+    {
+        return canAttack(x, y);
+    }
+
+    if(x != this->x)
+    {
+        return false;
+    }
+    int dir = (white) ? 1 : -1;
+    if(y == this->y + dir)
+    {
+        return true;
+    }
+    if(y == this->y + 2 * dir)
+    {
+        if(board->getPiece(x, y + dir) == NULL)
+        {
+            if(white)
+            {
+                return this->y <= WHITE_START_Y;
+            }
+            return this->y >= BLACK_START_Y;
+        }
+    }
+    return false;
 }
 
 bool Pawn::canAttack(int x, int y)

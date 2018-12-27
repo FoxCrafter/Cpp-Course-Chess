@@ -9,7 +9,7 @@ Rook::Rook(Board* board, int x, int y, bool white)
     //ctor
 }
 
-bool Rook::canMove(int x, int y)
+bool Rook::canMoveBase(int x, int y)
 {
     return canAttack(x,y);
 }

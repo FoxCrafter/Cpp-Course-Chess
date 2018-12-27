@@ -8,7 +8,7 @@ King::King(Board* board, int x, int y, bool white)
     //ctor
 }
 
-bool King::canMove(int x, int y)
+bool King::canMoveBase(int x, int y)
 {
     return canAttack(x,y);
 }

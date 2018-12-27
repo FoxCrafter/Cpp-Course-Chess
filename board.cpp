@@ -51,41 +51,39 @@ bool Board::removePiece(int i)
 
 bool Board::addPiece(Piece::Type type, int x, int y, bool white)
 {
-    if(getPieceId(x, y) == -1)
+    removePiece(x, y);
+    int i = getPieceId(NULL);
+    if(i >= 0)
     {
-        int i = getPieceId(NULL);
-        if(i >= 0)
+        switch(type)
         {
-            switch(type)
+        case Piece::PAWN:
+            pieces[i] = new Pawn(this, x, y, white);
+            break;
+        case Piece::KNIGHT:
+            pieces[i] = new Knight(this, x, y, white);
+            break;
+        case Piece::BISHOP:
+            pieces[i] = new Bishop(this, x, y, white);
+            break;
+        case Piece::ROOK:
+            pieces[i] = new Rook(this, x, y, white);
+            break;
+        case Piece::QUEEN:
+            pieces[i] = new Queen(this, x, y, white);
+            break;
+        default:
+            pieces[i] = new King(this, x, y, white);
+            if(white)
             {
-            case Piece::PAWN:
-                pieces[i] = new Pawn(this, x, y, white);
-                break;
-            case Piece::KNIGHT:
-                pieces[i] = new Knight(this, x, y, white);
-                break;
-            case Piece::BISHOP:
-                pieces[i] = new Bishop(this, x, y, white);
-                break;
-            case Piece::ROOK:
-                pieces[i] = new Rook(this, x, y, white);
-                break;
-            case Piece::QUEEN:
-                pieces[i] = new Queen(this, x, y, white);
-                break;
-            default:
-                pieces[i] = new King(this, x, y, white);
-                if(white)
-                {
-                    wk = (King*)pieces[i];
-                }
-                else
-                {
-                    bk = (King*)pieces[i];
-                }
+                wk = (King*)pieces[i];
             }
-            return true;
+            else
+            {
+                bk = (King*)pieces[i];
+            }
         }
+        return true;
     }
     return false;
 }
