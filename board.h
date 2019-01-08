@@ -18,6 +18,7 @@ public:
     bool addPiece(Piece::Type type, int x, int y, bool white);
     bool isChess(bool white, Piece* exculde);
     void print();
+    void onMove(bool epic);
     ~Board();
 private:
     int getPieceId(int x, int y);
@@ -26,6 +27,7 @@ private:
 
     Piece *pieces[MAX_N_PIECES];
     King *wk, *bk;
+    int fifty;
 };
 
 #endif // BOARD_H

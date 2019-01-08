@@ -28,7 +28,9 @@ bool Piece::move(int x, int y)
 {
     if(canMove(x, y))
     {
+        bool epic = (type == PAWN) || (board->getPiece(x, y) != NULL);
         forceMove(x, y);
+        board->onMove(epic);
         return true;
     }
     return false;

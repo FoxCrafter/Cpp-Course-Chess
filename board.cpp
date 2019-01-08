@@ -8,6 +8,9 @@ Board::Board()
     {
         pieces[i] = NULL;
     }
+    wk = bk = NULL;
+    fifty = 0;
+    turn = true;
 }
 
 Board::~Board()
@@ -179,5 +182,19 @@ bool Board::isChess(bool white, Piece* exclude)
         }
     }
     return false;
+}
+
+void Board::onMove(bool epic)
+{
+    if(epic)
+    {
+        fifty = 0;
+    }
+    fifty++;
+    if(fifty >= 50)
+    {
+        // draw
+    }
+    turn = !turn;
 }
 
