@@ -28,6 +28,7 @@ private:
     Piece *pieces[MAX_N_PIECES];
     King *wk, *bk;
     int fifty;
+    bool turn;
 };
 
 #endif // BOARD_H
